@@ -336,23 +336,56 @@
   color: var(--text-content-color);
   text-decoration: none;
   font-size: 0.9rem;
-  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease;
 
   @include dark {
     color: var(--text-content-dark-color);
   }
 
-  &:hover {
-    background: rgba(0, 0, 0, 0.05);
-    
-    @include dark {
-      background: rgba(255, 255, 255, 0.05);
+  // 滑动指示器
+  .nav-indicator {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleY(0);
+    width: 3px;
+    height: 60%;
+    border-radius: 0 3px 3px 0;
+    background: var(--text-highlight-color);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background: transparent;
+      color: var(--text-highlight-color);
+      transform: translateX(6px);
+
+      @include dark {
+        background: transparent;
+        color: var(--text-highlight-dark-color);
+      }
+
+      .nav-indicator {
+        transform: translateY(-50%) scaleY(1);
+      }
+
+      .nav-icon {
+        transform: scale(1.15);
+      }
     }
   }
 
   &.active {
     background: var(--text-highlight-color);
     color: #fff;
+
+    .nav-indicator {
+      transform: translateY(-50%) scaleY(1);
+      background: #fff;
+    }
   }
 
   // 手机端样式
@@ -363,6 +396,10 @@
     .nav-text {
       display: inline;
     }
+
+    .nav-indicator {
+      display: none;
+    }
   }
 }
 
@@ -370,10 +407,12 @@
   font-size: 0.95rem;
   width: 22px;
   text-align: center;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .nav-text {
   flex: 1;
+  transition: color 0.3s ease;
 }
 
 // 侧边栏标签

@@ -50,6 +50,7 @@
       <a href="{{ .URL }}" class="nav-item{{ if $active }} active{{ end }}"{{ with .Params.new_window }} target="_blank"{{ end }}>
         <span class="nav-icon">{{ $icon }}</span>
         <span class="nav-text">{{ .Name }}</span>
+        <span class="nav-indicator"></span>
       </a>
     {{ end }}
   </nav>

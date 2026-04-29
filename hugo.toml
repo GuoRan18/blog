@@ -67,12 +67,6 @@ hasCJKLanguage = true           # 准确计算中文字数和摘要
     weight = 5
     
   [[menu.main]]
-    identifier = "tags"
-    name = "标签"
-    url = "/tags/"
-    weight = 6
-    
-  [[menu.main]]
     identifier = "about"
     name = "关于"
     url = "/about/"
@@ -85,7 +79,7 @@ hasCJKLanguage = true           # 准确计算中文字数和摘要
     weight = 8
     
   [[menu.main]]
-    identifier = "search"
+    identifier = "rss"
     name = "搜索"
     url = "/pages/search/"
     weight = 9
