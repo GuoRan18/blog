@@ -1,0 +1,44 @@
+<!-- CWD 评论系统 -->
+<div id="cwd-comments"></div>
+
+<script src="https://unpkg.com/cwd-widget@0.0.x/dist/cwd.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // ==========================================
+    // ⚠️ 部署 CWD 后端后，修改下面的 API 地址
+    // ==========================================
+    const CWD_API_URL = 'https://cwd-api.i4017.workers.dev';
+    
+    // 获取当前页面路径作为评论标识符
+    const postSlug = window.location.pathname;
+    
+    const comments = new CWDComments({
+      el: '#cwd-comments',
+      apiBaseUrl: CWD_API_URL,
+      siteId: 'blog',                    // 站点标识，可修改
+      postSlug: postSlug,
+      lang: 'auto',
+      theme: 'light',
+      pageSize: 20
+    });
+    
+    comments.mount();
+  });
+</script>
+
+<style>
+/* CWD 评论组件样式优化 */
+#cwd-comments {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  #cwd-comments {
+    --cwd-bg: #1a1a1a;
+    --cwd-text: #e0e0e0;
+  }
+}
+</style>

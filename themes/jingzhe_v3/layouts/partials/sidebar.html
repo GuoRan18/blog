@@ -1,0 +1,67 @@
+{{ $postsCount := len (where site.RegularPages "Type" "posts") }}
+{{ $laodaoCount := len (where site.RegularPages "Type" "laodao") }}
+{{ $tagsCount := len site.Taxonomies.tags }}
+
+<aside class="blog-sidebar">
+  <div class="sidebar-profile">
+    <img src="{{ .Site.Params.avatar | default "https://www.4op.top/images/logo.jpeg" }}" alt="{{ .Site.Title }}" class="sidebar-avatar">
+    <h1 class="sidebar-title">{{ .Site.Title }}</h1>
+    <p class="sidebar-desc">{{ .Site.Params.description }}</p>
+    <div class="sidebar-stats">
+      <div class="stat-item">
+        <span class="stat-num">{{ $postsCount }}</span>
+        <span class="stat-label">文章</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">{{ $laodaoCount }}</span>
+        <span class="stat-label">唠叨</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">{{ $tagsCount }}</span>
+        <span class="stat-label">标签</span>
+      </div>
+    </div>
+  </div>
+  
+  <nav class="sidebar-nav">
+    {{ range site.Menus.main }}
+      {{ $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }}
+      {{ $active = or $active (eq (.URL | relLangURL) ($.RelPermalink | relLangURL)) }}
+      {{ $icon := "" }}
+      {{ if .Params.icon }}
+        {{ $icon = .Params.icon }}
+      {{ else if eq .Identifier "home" }}
+        {{ $icon = "🏠" }}
+      {{ else if eq .Identifier "posts" }}
+        {{ $icon = "📝" }}
+      {{ else if eq .Identifier "laodao" }}
+        {{ $icon = "💬" }}
+      {{ else if eq .Identifier "movies" }}
+        {{ $icon = "🎬" }}
+      {{ else if eq .Identifier "exercise" }}
+        {{ $icon = "💪" }}
+      {{ else if eq .Identifier "tags" }}
+        {{ $icon = "🏷️" }}
+      {{ else if eq .Identifier "about" }}
+        {{ $icon = "👤" }}
+      {{ else if eq .Identifier "rss" }}
+        {{ $icon = "📧" }}
+      {{ end }}
+      <a href="{{ .URL }}" class="nav-item{{ if $active }} active{{ end }}"{{ with .Params.new_window }} target="_blank"{{ end }}>
+        <span class="nav-icon">{{ $icon }}</span>
+        <span class="nav-text">{{ .Name }}</span>
+      </a>
+    {{ end }}
+  </nav>
+  
+  {{ if .Site.Taxonomies.tags }}
+  <div class="sidebar-section">
+    <h3 class="sidebar-section-title">热门标签</h3>
+    <div class="sidebar-tags">
+      {{ range first 12 .Site.Taxonomies.tags.ByCount }}
+      <a href="{{ .Page.RelPermalink }}" class="sidebar-tag">{{ .Page.Title }}</a>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+</aside>

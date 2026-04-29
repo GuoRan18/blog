@@ -1,0 +1,56 @@
+{{ define "body_classes" }}page-blog-tag{{ end }}
+
+{{ define "main" }}
+<div class="blog-layout">
+  {{ partial "sidebar.html" . }}
+
+  <main class="blog-main">
+    <div class="blog-header">
+      <h2 class="blog-header-title">{{ .Title }}</h2>
+      <span class="blog-header-count">{{ len .Pages }} 篇</span>
+    </div>
+
+    {{ $paginator := .Paginate .Pages 15 }}
+    {{ range .Paginator.Pages }}
+      {{ if eq .Type "posts" }}
+      <article class="blog-card">
+        <div class="card-meta">
+          <time class="card-time" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+            {{ .Date.Format "2006-01-02" }}
+          </time>
+          {{ with .Params.tags }}
+          <div class="card-tags">
+            {{ range first 2 . }}
+            <a href="{{ (urlize (printf "/tags/%s" .)) | relURL }}" class="card-tag">{{ . }}</a>
+            {{ end }}
+          </div>
+          {{ end }}
+        </div>
+        <h2 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p class="card-excerpt">{{ .Params.description }}</p>
+      </article>
+      {{ else if eq .Type "laodao" }}
+      <article class="blog-card laodao-card">
+        <a href="{{ .RelPermalink }}" class="card-link-overlay"></a>
+        <div class="card-meta">
+          <time class="card-time" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+            {{ .Date.Format "2006-01-02" }}
+          </time>
+          <span class="card-type">唠叨</span>
+        </div>
+        <p class="card-content">{{ .Summary | plainify | truncate 150 }}</p>
+      </article>
+      {{ end }}
+    {{ end }}
+
+    {{ if .Paginator.HasNext }}
+    <div class="blog-pagination">
+      <button id="laoda-more-btn" data-next-url="{{ .Paginator.Next.URL }}" class="blog-more-btn">加载更多</button>
+    </div>
+    {{ end }}
+  </main>
+</div>
+
+<script src="/js/laodao.js?v=20260329a" defer></script>
+{{ partial "comments.html" . }}
+{{ end }}

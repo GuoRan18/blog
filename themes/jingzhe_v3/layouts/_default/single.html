@@ -1,0 +1,22 @@
+{{ define "body_classes" }}page-default-single{{ end }}
+
+{{ define "main" }}
+<div class="blog-layout">
+  {{ partial "sidebar.html" . }}
+
+  <main class="blog-main">
+    <div class="single-page">
+      <header class="article-header">
+        <h1 class="article-title">{{ .Title }}{{ if site.Params.addDot }}<span class="dot">.</span>{{ end }}</h1>
+        {{ with .Params.image }}
+        <img src="{{ . | relURL }}" class="article-cover-img" alt="{{ $.Title }}" />
+        {{ end }}
+      </header>
+
+      <div class="article-content">
+        {{ .Content }}
+      </div>
+    </div>
+  </main>
+</div>
+{{ end }}

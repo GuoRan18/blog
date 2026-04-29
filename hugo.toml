@@ -1,0 +1,86 @@
+baseURL = "https://4op.top"
+languageCode = "zh-cn"
+title = "北海轻歌"
+theme = "jingzhe_v3"
+
+enableRobotsTXT = true
+hasCJKLanguage = true           # 准确计算中文字数和摘要
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.120.0"
+
+[permalinks]
+  posts = "/:slug/"
+
+# [内容渲染与处理]
+[markup]
+  [markup.highlight]
+    guessSyntax = true          # 没写语言标签时，自动猜测语言
+    lineNos = false             # 关掉原生行号 (配合纯净版 CSS 高亮)
+    noClasses = false           # 开启 class 模式，让 CSS 接管颜色
+    
+  [markup.goldmark.renderer]
+    unsafe = true               # 允许在 Markdown 中混合书写 HTML 标签
+
+# [分类与标签]
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  laodaotag = "laodaotags"
+
+# [菜单配置]
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    weight = 1
+    
+  [[menu.main]]
+    identifier = "posts"
+    name = "随笔"
+    url = "/posts/"
+    weight = 2
+    
+  [[menu.main]]
+    identifier = "laodao"
+    name = "唠叨"
+    url = "/laodao/"
+    weight = 3
+    
+  [[menu.main]]
+    identifier = "movies"
+    name = "观影"
+    url = "/movies/"
+    weight = 4
+    
+  [[menu.main]]
+    identifier = "exercise"
+    name = "运动"
+    url = "/exercise/"
+    weight = 5
+    
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 6
+    
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/about/"
+    weight = 7
+    
+  [[menu.main]]
+    identifier = "rss"
+    name = "RSS"
+    url = "/index.xml"
+    weight = 8
+  
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS", "JSON"]

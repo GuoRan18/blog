@@ -1,0 +1,30 @@
+{{ define "body_classes" }}page-laodao-list{{ end }}
+{{ define "title" }}唠叨{{ end }}
+
+{{ define "main" }}
+<div class="blog-layout">
+  {{ partial "sidebar.html" . }}
+
+  <main class="blog-main">
+    <div class="blog-header">
+      <h2 class="blog-header-title">{{ .Title | default "唠叨" }}</h2>
+      <span class="blog-header-count">{{ len .Pages }} 条</span>
+    </div>
+
+    <div class="index-card">
+      {{ range .Paginator.Pages }}
+      {{ partial "laodao-card.html" . }}
+      {{ end }}
+    </div>
+
+    {{ if .Paginator.HasNext }}
+    <div class="blog-pagination">
+      <button id="laoda-more-btn" data-next-url="{{ .Paginator.Next.URL }}" class="blog-more-btn">加载更多</button>
+    </div>
+    {{ end }}
+  </main>
+</div>
+
+<script src="/js/laodao.js?v=20260329a" defer></script>
+{{ partial "comments.html" . }}
+{{ end }}

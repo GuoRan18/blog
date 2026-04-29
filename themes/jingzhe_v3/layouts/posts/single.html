@@ -1,0 +1,103 @@
+{{ define "body_classes" }}page-blog-single{{ end }}
+{{ define "main" }}
+<div class="blog-layout">
+  {{ partial "sidebar.html" . }}
+
+  <main class="blog-main">
+    <article class="blog-card single-card">
+      <div class="card-meta">
+        <time class="card-time" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ .Date.Format "2006-01-02" }}
+        </time>
+        {{ with .Params.tags }}
+        <div class="card-tags">
+          {{ range . }}
+          <a href="{{ (urlize (printf "/tags/%s" .)) | relURL }}" class="card-tag">{{ . }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      <h1 class="card-title">{{ .Title }}</h1>
+      {{ with .Params.image }}
+      <div class="card-cover">
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" fetchpriority="high" decoding="async" />
+      </div>
+      {{ end }}
+      <div class="card-body" id="card-body-content">
+        {{ .Content }}
+      </div>
+      
+      <script>
+      // 多图网格布局检测
+      // 注意：p标签不能包含块级元素，浏览器会自动关闭p标签
+      // 所以figure不在p.children中，而是作为p的下一个兄弟元素
+      (function() {
+        var cardBody = document.getElementById('card-body-content');
+        if (!cardBody) return;
+        
+        // 找到所有连续的figure元素组
+        var allFigures = cardBody.querySelectorAll('figure.post-figure');
+        var groups = [];
+        var currentGroup = [];
+        
+        allFigures.forEach(function(fig, index) {
+          if (index === 0) {
+            currentGroup.push(fig);
+          } else {
+            var prevFig = allFigures[index - 1];
+            // 检查是否与前一个figure相邻（中间没有其他元素或只有空白）
+            if (fig.previousElementSibling === prevFig) {
+              currentGroup.push(fig);
+            } else {
+              if (currentGroup.length >= 2) {
+                groups.push(currentGroup);
+              }
+              currentGroup = [fig];
+            }
+          }
+        });
+        
+        if (currentGroup.length >= 2) {
+          groups.push(currentGroup);
+        }
+        
+        // 为每组连续的figure添加网格容器
+        groups.forEach(function(group) {
+          var count = group.length;
+          var firstFig = group[0];
+          
+          // 创建包装容器
+          var wrapper = document.createElement('div');
+          wrapper.className = 'img-grid-wrapper img-grid-' + (count <= 5 ? count : 'multi');
+          
+          // 将figure移动到wrapper中
+          group.forEach(function(fig) {
+            wrapper.appendChild(fig.cloneNode(true));
+          });
+          
+          // 替换第一个figure并删除其他figure
+          firstFig.parentNode.insertBefore(wrapper, firstFig);
+          group.forEach(function(fig) {
+            fig.parentNode.removeChild(fig);
+          });
+        });
+        
+        console.log('Image grid detection complete, found', groups.length, 'groups');
+      })();
+      </script>
+    </article>
+
+    <div class="article-nav">
+      <button type="button" 
+       onclick="const r=document.referrer; r&&r.includes(window.location.host)?history.back():window.location.href='/'" 
+       class="btn-back" title="返回" aria-label="返回">
+        ← 返回
+      </button>
+    </div>
+
+    <div class="article-comments">
+      {{ partial "comments.html" . }}
+    </div>
+  </main>
+</div>
+{{ end }}
