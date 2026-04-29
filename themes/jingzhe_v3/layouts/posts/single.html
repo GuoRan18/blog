@@ -87,13 +87,7 @@
       </script>
     </article>
 
-    <div class="article-nav">
-      <button type="button" 
-       onclick="const r=document.referrer; r&&r.includes(window.location.host)?history.back():window.location.href='/'" 
-       class="btn-back" title="返回" aria-label="返回">
-        ← 返回
-      </button>
-    </div>
+
 
     <div class="article-comments">
       {{ partial "comments.html" . }}

@@ -24,6 +24,12 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Setup Pagefind
+        run: npx -y pagefind --version
+
+      - name: Index with Pagefind
+        run: npx pagefind --site public
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:

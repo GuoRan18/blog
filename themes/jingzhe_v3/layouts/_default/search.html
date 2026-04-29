@@ -1,0 +1,57 @@
+{{ define "body_classes" }}page-search{{ end }}
+{{ define "main" }}
+<div class="blog-layout">
+  {{ partial "sidebar.html" . }}
+
+  <main class="blog-main">
+    <div class="search-container">
+      <h1 class="search-title">搜索</h1>
+      <div id="search-wrapper"></div>
+    </div>
+  </main>
+</div>
+
+<link href="{{ "pagefind/pagefind-ui.css" | relURL }}" rel="stylesheet">
+<script src="{{ "pagefind/pagefind-ui.js" | relURL }}" defer></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    new PagefindUI({ 
+      element: "#search-wrapper", 
+      showSubResults: true,
+      showImages: false,
+      resetStyles: false
+    });
+  });
+</script>
+
+<style>
+.search-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.search-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color, #333);
+}
+
+#search-wrapper {
+  --pagefind-ui-scale: 0.9;
+  --pagefind-ui-primary: var(--accent-color, #007bff);
+  --pagefind-ui-text: var(--text-color, #333);
+  --pagefind-ui-background: var(--card-bg, #fff);
+  --pagefind-ui-border: var(--border-color, #ddd);
+  --pagefind-ui-tag: var(--tag-bg, #f0f0f0);
+  --pagefind-ui-font: inherit;
+}
+
+/* 暗色模式 */
+@media (prefers-color-scheme: dark) {
+  .search-title {
+    color: #e0e0e0;
+  }
+}
+</style>
+{{ end }}

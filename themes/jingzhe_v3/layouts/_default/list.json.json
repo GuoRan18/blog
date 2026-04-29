@@ -1,25 +1,21 @@
-{{- $list := slice -}}
-{{- /* 获取所有随笔，按时间倒序排列 */ -}}
-{{- $pages := where site.RegularPages "Type" "posts" -}}
-{{- range $pages.ByDate.Reverse -}}
+{{- $.Scratch.Delete "pages" -}}
+{{- $.Scratch.Set "pages" slice -}}
 
-  {{- /* 提取封面图并转化为绝对路径（带有 https 的完整链接） */ -}}
-  {{- $coverImage := "" -}}
-  {{- if .Params.image -}}
-    {{- $coverImage = .Params.image | absURL -}}
-  {{- end -}}
-
-  {{- /* 提取描述 */ -}}
-  {{- $description := "" -}}
-  {{- if .Params.description -}}
-    {{- $description = .Params.description -}}
-  {{- end -}}
-
-{{- /* 组装单条随笔数据：把 .Plain 改为 .RawContent 以保留图片和换行等格式 */ -}}
-  {{- $item := dict "id" .File.UniqueID "title" .Title "url" .Permalink "date" (.Date.Format "2006-01-02T15:04:05+08:00") "description" $description "coverImage" $coverImage "content" .RawContent -}}
-
-  {{- $list = $list | append $item -}}
+{{- if eq .Kind "page" -}}
+  {{- $.Scratch.Set "pages" (slice .) -}}
+{{- else -}}
+  {{- $pages := .Data.Pages -}}
+  {{- $.Scratch.Set "pages" $pages -}}
 {{- end -}}
 
-{{- /* 输出为 JSON */ -}}
-{{- $list | jsonify -}}
+{{- $pages := $.Scratch.Get "pages" -}}
+[
+  {{- range $index, $page := $pages -}}
+  {{- if $index }},{{end -}}
+  {
+    "uri": {{ $page.RelPermalink | jsonify }},
+    "title": {{ $page.Title | jsonify }},
+    "content": {{ $page.Plain | jsonify }}
+  }
+  {{- end -}}
+]

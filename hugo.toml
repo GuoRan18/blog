@@ -1,4 +1,4 @@
-baseURL = "https://4op.top"
+baseURL = "https://blog.qiongl.com/"
 languageCode = "zh-cn"
 title = "北海轻歌"
 theme = "jingzhe_v3"
@@ -79,7 +79,12 @@ hasCJKLanguage = true           # 准确计算中文字数和摘要
     name = "RSS"
     url = "/index.xml"
     weight = 8
-  
+    
+  [[menu.main]]
+    identifier = "search"
+    name = "搜索"
+    url = "/pages/search/"
+    weight = 9
 
 [outputs]
   home = ["HTML", "RSS"]
