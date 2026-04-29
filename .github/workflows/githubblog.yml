@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main  # 监听源码主分支
+      - main
 
 jobs:
   deploy:
@@ -29,6 +29,13 @@ jobs:
 
       - name: Index with Pagefind
         run: npx pagefind --site public
+
+      - name: Verify Pagefind files
+        run: |
+          echo "=== Pagefind directory ==="
+          ls -la public/pagefind/
+          echo "=== Checking for pagefind files ==="
+          find public/pagefind -type f -name "*.js" -o -name "*.css" | head -10
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
