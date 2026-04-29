@@ -25,21 +25,23 @@ jobs:
         run: hugo --minify
 
       - name: Setup Pagefind
-        run: npx -y pagefind --version
+        run: npm install -g pagefind
 
       - name: Index with Pagefind
-        run: npx pagefind --site public
+        run: pagefind --site public
 
       - name: Verify Pagefind files
         run: |
-          echo "=== Pagefind directory ==="
+          echo "=== Pagefind files ==="
           ls -la public/pagefind/
-          echo "=== Checking for pagefind files ==="
-          find public/pagefind -type f -name "*.js" -o -name "*.css" | head -10
+          echo "=== File count ==="
+          find public/pagefind -type f | wc -l
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages deploy ./public --project-name=koobaiblog --commit-dirty=true
+          projectName: koobaiblog
+          directory: public
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
