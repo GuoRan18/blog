@@ -9,6 +9,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
     steps:
       - uses: actions/checkout@v4
         with:
@@ -32,16 +35,19 @@ jobs:
 
       - name: Verify Pagefind files
         run: |
-          echo "=== Pagefind files ==="
+          echo "=== Checking pagefind directory ==="
           ls -la public/pagefind/
-          echo "=== File count ==="
+          echo ""
+          echo "=== Count pagefind files ==="
           find public/pagefind -type f | wc -l
+          echo ""
+          echo "=== List all files ==="
+          find public/pagefind -type f -exec echo {} \;
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          projectName: koobaiblog
-          directory: public
+          command: pages deploy ./public --project-name=koobaiblog --commit-dirty=true
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
