@@ -31,13 +31,9 @@ jobs:
           pagefind --site public
           echo "=== Pagefind files ==="
           ls -la public/pagefind/
-          echo "=== File count ==="
-          find public/pagefind -type f | wc -l
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
-          accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages deploy ./public --project-name=koobaiblog
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          export CLOUDFLARE_API_TOKEN=${{ secrets.CLOUDFLARE_API_TOKEN }}
+          export CF_ACCOUNT_ID=${{ secrets.CF_ACCOUNT_ID }}
+          npx wrangler pages deploy ./public --project-name=koobaiblog
