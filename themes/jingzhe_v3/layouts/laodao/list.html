@@ -11,11 +11,39 @@
       <span class="blog-header-count">{{ len .Pages }} 条</span>
     </div>
 
-    <div class="index-card">
-      {{ range .Paginator.Pages }}
-      {{ partial "laodao-card.html" . }}
+    {{ range .Paginator.Pages }}
+    <article class="blog-card laodao-card">
+      <a href="{{ .RelPermalink }}" class="card-link-overlay"></a>
+      <div class="card-meta">
+        <time class="card-time" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+          {{ .Date.Format "2006-01-02" }}
+        </time>
+        <span class="card-type">唠叨</span>
+        {{ with .Params.device }}
+        <span class="laodao-device" style="margin-left:6px">{{ . }}</span>
+        {{ end }}
+        {{ with .Params.location }}
+        {{ $latlng := split $.Params.latlng "," }}
+        {{ $lat := index $latlng 0 }}
+        {{ $lon := index $latlng 1 }}
+        <a href="https://www.openstreetmap.org/?mlat={{ $lat }}&mlon={{ $lon }}#map=16/{{ $lat }}/{{ $lon }}" target="_blank" class="laodao-location">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -1px; margin-right: 2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>{{ . }}</a>
+        {{ end }}
+      </div>
+      <p class="card-content">{{ .Summary | plainify | truncate 150 }}</p>
+      {{ $imgPattern := `https?://[^\s"')]+\.(?:jpg|jpeg|png|gif|webp)(?:\?[^\s"')]*)?` }}
+      {{ $contentImages := findRESubmatch $imgPattern .Content }}
+      {{ if $contentImages }}
+      <div class="card-images">
+        {{ range first 3 $contentImages }}
+        <a href="{{ $.RelPermalink }}" class="card-img-wrap">
+          <img loading="lazy" decoding="async" src="{{ index . 0 }}" alt="" />
+        </a>
+        {{ end }}
+      </div>
       {{ end }}
-    </div>
+    </article>
+    {{ end }}
 
     {{ if .Paginator.HasNext }}
     <div class="blog-pagination">

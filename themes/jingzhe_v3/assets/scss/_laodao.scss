@@ -2,7 +2,7 @@
   display: grid;
   gap: 10px;
 }
-.laodao-card,
+.card-timeline.laodao-card,
 .index-post {
   padding: 15px;
   background: var(--background-card-color);
@@ -255,16 +255,24 @@
       width: 30%;
     }
 
-    /* PC 2 张或 4 张图：双列占版面一半 */
-    &:has(img:first-child:nth-last-child(2)),
+    /* PC 2 张图：双列适中 */
+    &:has(img:first-child:nth-last-child(2)) {
+      width: 50%;
+    }
+
+    /* PC 3 张图：三列适中 */
+    &:has(img:first-child:nth-last-child(3)) {
+      width: 65%;
+    }
+
+    /* PC 4 张图：两列两行 */
     &:has(img:first-child:nth-last-child(4)) {
       width: 50%;
     }
 
-    /* PC 3 张，及 5 张以上图：三列占 65% */
-    &:has(img:first-child:nth-last-child(3)),
+    /* PC 5 张以上图：三列撑满 */
     &:has(img:first-child:nth-last-child(n + 5)) {
-      width: 65%;
+      width: 100%;
     }
   }
 }

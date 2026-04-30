@@ -379,7 +379,7 @@
   }
 
   &.active {
-    background: var(--text-highlight-color);
+    background: #f79797;
     color: #fff;
 
     .nav-indicator {
@@ -723,6 +723,7 @@
   position: relative;
   cursor: pointer;
   transition: background 0.2s;
+  background: var(--background-card-color);
   
   &:hover {
     background: rgba(0, 0, 0, 0.04);
@@ -955,75 +956,7 @@
   }
 }
 
-// ==========================================
-// 关于页
-// ==========================================
-.about-content {
-  max-width: 700px;
-}
-
-.about-header {
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
-  @include dark {
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0;
-    color: var(--text-content-color);
-  }
-}
-
-.about-intro {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  margin-bottom: 25px;
-  color: var(--text-content-color);
-
-  @include dark {
-    color: var(--text-content-dark-color);
-  }
-}
-
-.about-img {
-  margin: 25px 0;
-
-  img {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 16px;
-  }
-
-  .about-img-text {
-    font-size: 2rem;
-    margin-top: 10px;
-  }
-
-  .about-img-intro {
-    font-size: 0.9rem;
-    color: var(--text-info-color);
-  }
-}
-
-.about-text {
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 15px;
-  color: var(--text-content-color);
-
-  @include dark {
-    color: var(--text-content-dark-color);
-  }
-
-  a {
-    color: var(--text-highlight-color);
-  }
-}
+// 关于页样式已移至 _about.scss
 
 // ==========================================
 // 默认单页

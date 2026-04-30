@@ -4,36 +4,133 @@
   {{ partial "sidebar.html" . }}
 
   <main class="blog-main">
-    <div class="about-content">
-      <div class="about-header">
-        <h2>关于</h2>
-      </div>
-      <div class="about-body">
-        <p class="about-intro">
-          这里是我小天地，用来记录生活。对我个人而言，如果一件事没有记录，那这件事终将在记忆中被遗忘，进而找不到他存在的任何证据。我在这里写下的文字，是我存在的最好的证明。
-        </p>
+    <div class="about-container">
 
-        <div class="about-img">
-          <img src="" alt="" />
-          <div class="about-img-text">Hello</div>
-          <div class="about-img-intro"></div>
+      <!-- Bento 主区域 -->
+      <div class="about-bento">
+
+        <!-- 大卡片：头像 + 个人信息 -->
+        <div class="about-bento-hero">
+          <div class="about-hero-avatar">
+            <img src="{{ .Site.Params.avatar | default "https://img.010316.xyz/1.jpg" }}" alt="{{ .Site.Title }}">
+          </div>
+          <div class="about-hero-info">
+            <h1 class="about-hero-name">{{ .Site.Title }}</h1>
+            <p class="about-hero-desc">{{ .Site.Params.description }}</p>
+            <div class="about-hero-badges">
+              <span class="about-badge">🌱 婺源</span>
+              <span class="about-badge">🎨 设计</span>
+              <span class="about-badge">💻 折腾</span>
+            </div>
+          </div>
+          <!-- 装饰光斑 -->
+          <div class="about-hero-glow"></div>
         </div>
 
-        <div class="about-text">
-          🕴平民百姓，何足挂齿。
+        <!-- 简介卡片 -->
+        <div class="about-bento-intro">
+          <div class="about-intro-label">关于这里</div>
+          <p class="about-intro-text">
+            这里是我小天地，用来记录生活。对我个人而言，如果一件事没有记录，那这件事终将在记忆中被遗忘，进而找不到他存在的任何证据。我在这里写下的文字，是我存在的最好的证明。
+          </p>
         </div>
-        <div class="about-text">
-          我喜欢网络，喜欢未知的东西。
+
+        <!-- 统计卡片组 -->
+        <div class="about-bento-stat">
+          <span class="about-stat-emoji">📝</span>
+          <span class="about-stat-num" data-target="{{ len (where site.RegularPages "Type" "posts") }}">0</span>
+          <span class="about-stat-label">随笔</span>
         </div>
-        <div class="about-text">
-          就像这个网站的出现，没有目的，只有兴趣。
+        <div class="about-bento-stat">
+          <span class="about-stat-emoji">💬</span>
+          <span class="about-stat-num" data-target="{{ len (where site.RegularPages "Type" "laodao") }}">0</span>
+          <span class="about-stat-label">唠叨</span>
         </div>
-        <div class="about-text">
-          涉足网络十多年，接触了许多新的东西，认识了一些朋友。
+        <div class="about-bento-stat">
+          <span class="about-stat-emoji">🏷️</span>
+          <span class="about-stat-num" data-target="{{ len site.Taxonomies.tags }}">0</span>
+          <span class="about-stat-label">标签</span>
         </div>
+
+        <!-- 关于我列表 -->
+        <div class="about-bento-me">
+          <div class="about-me-title">关于我</div>
+          <div class="about-me-list">
+            <div class="about-me-item">
+              <span class="about-me-emoji">🕴</span>
+              <span>平民百姓，何足挂齿。</span>
+            </div>
+            <div class="about-me-item">
+              <span class="about-me-emoji">🌐</span>
+              <span>我喜欢网络，喜欢未知的东西。</span>
+            </div>
+            <div class="about-me-item">
+              <span class="about-me-emoji">💡</span>
+              <span>就像这个网站的出现，没有目的，只有兴趣。</span>
+            </div>
+            <div class="about-me-item">
+              <span class="about-me-emoji">🤝</span>
+              <span>涉足网络十多年，接触了许多新的东西，认识了一些朋友。</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 技术栈 -->
+        <div class="about-bento-tech">
+          <div class="about-tech-title">技术栈</div>
+          <div class="about-tech-tags">
+            <span class="about-tech-tag">Hugo</span>
+            <span class="about-tech-tag">Memos</span>
+            <span class="about-tech-tag">又拍云</span>
+            <span class="about-tech-tag">GitHub</span>
+            <span class="about-tech-tag">Cloudflare</span>
+          </div>
+        </div>
+
       </div>
     </div>
-    <script src="/js/about-photo.js?v=20260131" defer></script>
+
+    <script>
+    (function() {
+      // 数字递增动画
+      var nums = document.querySelectorAll('.about-stat-num[data-target]');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+            var target = parseInt(el.dataset.target, 10);
+            var duration = 1200;
+            var start = performance.now();
+            function step(now) {
+              var progress = Math.min((now - start) / duration, 1);
+              var eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.round(target * eased);
+              if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+            observer.unobserve(el);
+          }
+        });
+      }, { threshold: 0.5 });
+      nums.forEach(function(el) { observer.observe(el); });
+
+      // 卡片渐入动画
+      var cards = document.querySelectorAll('.about-bento > *');
+      var cardObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = 'aboutFadeSlideUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards';
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      cards.forEach(function(el, i) {
+        el.style.opacity = '0';
+        el.style.animationDelay = (i * 0.06) + 's';
+        cardObserver.observe(el);
+      });
+    })();
+    </script>
   </main>
 </div>
 {{- end }}
