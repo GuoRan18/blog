@@ -325,7 +325,11 @@
             try {
                 const webpBlob = await compressImage(file);
                 const fileName = `memos/${Date.now()}_${Math.random().toString(36).substr(2, 6)}.webp`;
-                await secureFetch(`${CONFIG.workerUrl}/api/upload?name=${fileName}`, { method: 'POST', body: webpBlob });
+                const uploadRes = await secureFetch(`${CONFIG.workerUrl}/api/upload?name=${fileName}`, { method: 'POST', body: webpBlob });
+                if (!uploadRes.ok) {
+                    const errData = await uploadRes.json().catch(() => ({}));
+                    throw new Error(errData.detail || errData.error || 'Upload failed');
+                }
                 insertText(`\n![img](${CONFIG.upyunDomain.replace(/\/+$/, '')}/${fileName})`);
             } catch (err) { 
                 if (typeof uploadMsg === 'function') uploadMsg();
