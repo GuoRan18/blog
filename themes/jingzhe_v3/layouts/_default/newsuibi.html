@@ -74,8 +74,8 @@
 </div>
 
 <script>
-    const CONFIG = { workerUrl: "https://newlaodao.koobai.com", owner: "koobai", repo: "blog", branch: "main", upyunDomain: "https://img.koobai.com" };
-    const CACHE_KEY = 'koobai_article_draft'; 
+    const CONFIG = { workerUrl: "https://blog-github-proxy.i4017.workers.dev", owner: "GuoRan18", repo: "blog", branch: "master", upyunDomain: "https://img.010316.xyz/" };
+    const CACHE_KEY = 'blog_article_draft'; 
 
     let isPreviewMode = false;
     let emojiDiv = null;
@@ -273,7 +273,7 @@
                 const webpBlob = await compressImage(file);
                 const fileName = `article/${Date.now()}_${Math.random().toString(36).slice(2, 8)}.webp`;
                 await secureFetch(`${CONFIG.workerUrl}/api/upload?name=${fileName}`, { method: 'POST', body: webpBlob });
-                wrapText('![', `](${CONFIG.upyunDomain}/${fileName})\n`, ''); 
+                wrapText('![', `](${CONFIG.upyunDomain.replace(/\/+$/, '')}/${fileName})\n`, ''); 
             } catch (err) { 
                 if (typeof uploadMsg === 'function') uploadMsg();
                 if (err.message === "401") return logout(); return cocoMessage.error("图片上传失败"); 
@@ -475,7 +475,7 @@
     }
 
     function logout(reload = true) {
-        localStorage.removeItem("koobai_admin_token");
+        localStorage.removeItem("blog_admin_token");
         reload ? location.reload() : ($('loginOverlay').style.display = 'flex', $('adminPanel').style.display = 'none');
     }
 

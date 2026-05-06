@@ -67,13 +67,13 @@
 
 <script>
     const CONFIG = {
-        workerUrl: "https://newlaodao.koobai.com",
-        draftUrl: "https://laodaodraft.koobai.com",
-        owner: "koobai", repo: "blog", branch: "main",
-        upyunDomain: "https://img.koobai.com",
+        workerUrl: "https://blog-github-proxy.i4017.workers.dev",
+        draftUrl: "https://blog-laodao-draft.i4017.workers.dev",
+        owner: "GuoRan18", repo: "blog", branch: "master",
+        upyunDomain: "https://img.010316.xyz/",
     };
 
-    const CACHE_KEY = 'koobai_laodao_draft';
+    const CACHE_KEY = 'blog_laodao_draft';
     const STATE = { sha: null, path: null, date: null, emoji: null, location: null, draftId: null, device: null };
     let hasFetchedRecent = false; 
     let draftTimer;
@@ -226,7 +226,7 @@
     }
 
     function logout(reload = true) {
-        localStorage.removeItem("koobai_admin_token");
+        localStorage.removeItem("blog_admin_token");
         reload ? location.reload() : ($('loginOverlay').style.display = 'flex', $('adminPanel').style.display = 'none');
     }
 
@@ -326,7 +326,7 @@
                 const webpBlob = await compressImage(file);
                 const fileName = `memos/${Date.now()}_${Math.random().toString(36).substr(2, 6)}.webp`;
                 await secureFetch(`${CONFIG.workerUrl}/api/upload?name=${fileName}`, { method: 'POST', body: webpBlob });
-                insertText(`\n![img](${CONFIG.upyunDomain}/${fileName})`);
+                insertText(`\n![img](${CONFIG.upyunDomain.replace(/\/+$/, '')}/${fileName})`);
             } catch (err) { 
                 if (typeof uploadMsg === 'function') uploadMsg();
                 if (err.message === "401") return (cocoMessage.error("登录状态失效"), logout()); 
