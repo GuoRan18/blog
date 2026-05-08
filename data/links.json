@@ -1,0 +1,43 @@
+[
+  {
+    "group": "友链",
+    "items": [
+      {
+        "name": "林海草原",
+        "url": "https://lhcy.org/",
+        "avatar": "https://imgur.lzmun.com/picgo/20190121223407.png_avatar",
+        "description": "一句真话比整个世界的分量还重"
+      },
+      {
+        "name": "雨落泪尽",
+        "url": "https://couqiao.net/",
+        "avatar": "https://file.couqiao.net/webimg/gravatar.webp",
+        "description": "如今独爱云淡风轻，只愿在滚滚红尘中揽得风花雪月独醉。"
+      },
+      {
+        "name": "程志辉博客",
+        "url": "https://www.qqzmly.com/",
+        "avatar": "https://www.qqzmly.com/usr/uploads/2020/04/548601000.jpg",
+        "description": "跑步达人，伪文艺青年，瞎倒腾"
+      },
+      {
+        "name": "追忆白",
+        "url": "https://www.zhuiyibai.cn",
+        "avatar": "https://www.zhuiyibai.cn/favicon.ico",
+        "description": "Just like old time!"
+      },
+      {
+        "name": "ĀKURAI's",
+        "url": "https://404gle.cn",
+        "avatar": "https://404gle.cn/images/avatar.webp",
+        "description": "互联网是一座坟墓"
+      },
+      {
+        "name": "和光同尘",
+        "url": "https://blog.markhoo.cn",
+        "avatar": "https://blog.markhoo.cn/img/android-chrome-192x192_hu2cd8897914ec65893453b87131cde6d5_42520_288x288_fill_box_center_3.png",
+        "description": "终日而思，不如须臾之所学也"
+      }
+    ]
+  }
+]

@@ -2,7 +2,7 @@ let cachedLikesData = null;
 
 async function getLikesData() {
   if (cachedLikesData) return cachedLikesData;
-  const LIKE_API_BASE = 'https://likes.koobai.com/api/likes';
+  const LIKE_API_BASE = 'https://likes.i4017.workers.dev/api/likes';
   try {
     const res = await fetch(LIKE_API_BASE);
     if (res.ok) cachedLikesData = await res.json();
@@ -88,7 +88,7 @@ async function initLikes() {
             
             // 召唤隐形盾牌
             const wId = turnstile.render(div, {
-              sitekey: '0x4AAAAAACw0z9xeBryoGaUA',
+              sitekey: '0x4AAAAAADLJkEyZUemFoCnD',
               size: 'invisible',
               action: 'like_laodao',
               callback: t => { 
@@ -107,7 +107,7 @@ async function initLikes() {
           if (!token) return;
 
           // 带着刚拿到的热乎通行证发给服务器
-          await fetch('https://likes.koobai.com/api/likes/submit', {
+          await fetch('https://likes.i4017.workers.dev/api/likes/submit', {
             method: 'POST',
             headers: { 
               'Content-Type': 'application/json', 

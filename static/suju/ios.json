@@ -1,25 +1,25 @@
 {
-  "name": "空白Koobai",
-  "short_name": "Koobai",
+  "name": "琛苏",
+  "short_name": "琛苏",
   "start_url": "/",
   "display": "standalone",
   "icons": [
     {
-      "src": "https://img.koobai.com/icon_192.png",
+      "src": "https://img.010316.xyz/1.jpg",
       "sizes": "192x192",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "https://img.koobai.com/icon_512.png",
+      "src": "https://img.010316.xyz/1.jpg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "https://img.koobai.com/icon_1024.png",
+      "src": "https://img.010316.xyz/1.jpg",
       "sizes": "1024x1024",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     }
   ]

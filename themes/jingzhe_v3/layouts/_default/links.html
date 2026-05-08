@@ -1,0 +1,110 @@
+{{ define "body_classes" }}page-links{{ end }}
+{{- define "main" }}
+<div class="blog-layout">
+  {{ partial "sidebar.html" . }}
+
+  <main class="blog-main">
+    <div class="about-container">
+
+      <!-- Bento 主区域 -->
+      <div class="about-bento">
+
+        <!-- 大卡片：页面标题 -->
+        <div class="about-bento-hero">
+          <div class="about-hero-avatar">
+            <img src="https://img.010316.xyz/1.jpg" alt="友链">
+          </div>
+          <div class="about-hero-info">
+            <h1 class="about-hero-name">友链</h1>
+            <p class="about-hero-desc">与有趣的灵魂相遇</p>
+            <div class="about-hero-badges">
+              <span class="about-badge">🔗 连接</span>
+              <span class="about-badge">🤝 交流</span>
+              <span class="about-badge">✨ 分享</span>
+            </div>
+          </div>
+          <!-- 装饰光斑 -->
+          <div class="about-hero-glow"></div>
+        </div>
+
+        <!-- 交换友链说明 -->
+        <div class="about-bento-intro links-notice-card">
+          <div class="about-intro-label">💡 交换友链</div>
+          <p class="about-intro-text">
+            欢迎交换友链！如果你的博客符合以下条件，欢迎在评论区留言或联系博主：
+          </p>
+          <ul class="links-requirements">
+            <li>🎨 内容原创</li>
+            <li>🕐 持续更新</li>
+            <li>🔗 正常访问</li>
+            <li>🚫 合规内容</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 友链列表区域 -->
+      <div class="links-section">
+        <div class="links-section-header">
+          <h2 class="links-section-title">友情链接</h2>
+          <span class="links-section-count">
+            {{ $total := 0 }}
+            {{ range .Site.Data.links }}
+              {{ $total = add $total (len .items) }}
+            {{ end }}
+            {{ $total }} 位小伙伴
+          </span>
+        </div>
+        
+        {{ if .Site.Data.links }}
+          <div class="links-grid">
+            {{ range .Site.Data.links }}
+              {{ range .items }}
+                <a href="{{ .url }}" target="_blank" rel="noopener" class="link-card">
+                  <div class="link-card-avatar">
+                    <img src="{{ .avatar }}" alt="{{ .name }}" loading="lazy">
+                  </div>
+                  <div class="link-card-info">
+                    <div class="link-card-name">{{ .name }}</div>
+                    <div class="link-card-desc">{{ .description }}</div>
+                  </div>
+                  <div class="link-card-arrow">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+                    </svg>
+                  </div>
+                </a>
+              {{ end }}
+            {{ end }}
+          </div>
+        {{ else }}
+          <div class="links-empty">
+            <div class="empty-icon">📭</div>
+            <p>暂无友链，期待与你的相遇～</p>
+          </div>
+        {{ end }}
+      </div>
+
+    </div>
+
+    <script>
+    (function() {
+      // 卡片渐入动画
+      var cards = document.querySelectorAll('.link-card');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      cards.forEach(function(card, i) {
+        card.style.animationDelay = (i * 0.05) + 's';
+        observer.observe(card);
+      });
+    })();
+    </script>
+  </main>
+</div>
+{{- end }}

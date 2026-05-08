@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const div = document.createElement('div');
       document.body.appendChild(div);
       cmtTurnstileId = turnstile.render(div, {
-        sitekey: '0x4AAAAAACw0z9xeBryoGaUA',
+        sitekey: '0x4AAAAAADLJkEyZUemFoCnD',
         size: 'invisible',
         callback: (t) => { if (cmtTokenResolve) cmtTokenResolve(t); },
         'error-callback': () => { if (cmtTokenReject) cmtTokenReject(new Error('人机验证超时，刷新重试。')); }

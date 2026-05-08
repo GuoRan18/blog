@@ -40,6 +40,8 @@
         {{ $icon = "🎬" }}
       {{ else if eq .Identifier "exercise" }}
         {{ $icon = "💪" }}
+      {{ else if eq .Identifier "links" }}
+        {{ $icon = "🔗" }}
       {{ else if eq .Identifier "tags" }}
         {{ $icon = "🏷️" }}
       {{ else if eq .Identifier "about" }}
