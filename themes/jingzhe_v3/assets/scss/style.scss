@@ -52,7 +52,9 @@ $breakpoints: (
   font-weight: 400;
   src:
     local("Geist Mono"),
-    local("GeistMono");
+    local("GeistMono"),
+    url("/fonts/GeistMono-Regular.woff2")
+      format("woff2");
   unicode-range: U+0021-00FF;
 }
 
@@ -62,7 +64,9 @@ $breakpoints: (
   font-weight: 700;
   src:
     local("Geist Mono Bold"),
-    local("GeistMono-Bold");
+    local("GeistMono-Bold"),
+    url("/fonts/GeistMono-Bold.woff2")
+      format("woff2");
   unicode-range: U+0021-00FF;
 }
 
