@@ -4,7 +4,7 @@
     "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", sans-serif;
 
-  --background-body-color: #f2f0eb;
+  --background-body-color: #f2f1f6;
   --background-dark-body-color: #151516;
   --background-card-color: #fffdfa;
   --background-card-dark-color: #1c1c1e;
@@ -52,9 +52,7 @@ $breakpoints: (
   font-weight: 400;
   src:
     local("Geist Mono"),
-    local("GeistMono"),
-    url("https://img.koobai.com/fonts/GeistMono-Regular.woff2?v=20260402-1")
-      format("woff2");
+    local("GeistMono");
   unicode-range: U+0021-00FF;
 }
 
@@ -64,9 +62,7 @@ $breakpoints: (
   font-weight: 700;
   src:
     local("Geist Mono Bold"),
-    local("GeistMono-Bold"),
-    url("https://img.koobai.com/fonts/GeistMono-Bold.woff2?v=20260402-1")
-      format("woff2");
+    local("GeistMono-Bold");
   unicode-range: U+0021-00FF;
 }
 
