@@ -45,8 +45,8 @@ wrangler deploy
 # 设置环境变量（在 Cloudflare Dashboard 或命令行）
 wrangler secret put ADMIN_TOKEN       # 你的管理密钥（自己定一个复杂密码）
 wrangler secret put GITHUB_TOKEN      # 你的 GitHub PAT
-wrangler secret put UPYUN_OPERATOR    # 又拍云操作员名
-wrangler secret put UPYUN_PASSWORD    # 又拍云操作员密码
+wrangler secret put UPYUN_ACCESS_KEY  # 又拍云 AccessKey
+wrangler secret put UPYUN_SECRET_KEY  # 又拍云 SecretKey
 wrangler secret put UPYUN_BUCKET      # 又拍云桶名
 wrangler secret put UPYUN_DOMAIN      # 又拍云域名 如 https://img.yourdomain.com
 ```

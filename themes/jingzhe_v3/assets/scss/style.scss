@@ -1,22 +1,22 @@
 :root {
   --font-stack-system:
-    "GeistMono", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "ChironGoRoundTC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", sans-serif;
 
-  --background-body-color: #f2f1f6;
-  --background-dark-body-color: #151516;
-  --background-card-color: #fffdfa;
-  --background-card-dark-color: #1c1c1e;
-  --background-card-border-color: #fffdfa;
-  --background-card-border-dark-color: rgba(255, 255, 255, 0.03);
+  --background-body-color: #f5f5f5;
+  --background-dark-body-color: #0d0d0d;
+  --background-card-color: #fff;
+  --background-card-dark-color: #1a1a1a;
+  --background-card-border-color: rgba(0, 0, 0, 0.06);
+  --background-card-border-dark-color: rgba(255, 255, 255, 0.04);
 
-  --text-content-color: #222;
-  --text-content-dark-color: #98989d;
-  --text-highlight-color: #f79797;
-  --text-highlight-dark-color: #c3aacc;
-  --text-info-color: #adaba6;
-  --text-info-dark-color: #5c5c62;
+  --text-content-color: #1a1a1a;
+  --text-content-dark-color: #c4c4c4;
+  --text-highlight-color: #e07a7a;
+  --text-highlight-dark-color: #b892cc;
+  --text-info-color: #999;
+  --text-info-dark-color: #666;
 
   --exercise-text-highlight-color: #32d74b;
 }
@@ -68,6 +68,13 @@ $breakpoints: (
     url("/fonts/GeistMono-Bold.woff2")
       format("woff2");
   unicode-range: U+0021-00FF;
+}
+
+@font-face {
+  font-family: "ChironGoRoundTC";
+  font-display: swap;
+  font-weight: 350;
+  src: url("/fonts/ChironGoRoundTC-350N.ttf") format("truetype");
 }
 
 *,

@@ -31,17 +31,17 @@
   }
 }
 .laodao-content {
-  line-height: 1.9;
+  line-height: 2.0;
   font-size: 1.0rem;
-  font-family: "LXGW WenKai Screen", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif;
-  color: #7b7b7b;
+  font-family: "ChironGoRoundTC", -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: #555;
 
   @include dark {
     color: var(--text-content-dark-color);
   }
 
   p {
-    margin: 10px 0;
+    margin: 12px 0;
     text-align: justify;
     text-align-last: left;
     text-justify: inter-ideograph;

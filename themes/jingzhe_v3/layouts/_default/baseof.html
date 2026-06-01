@@ -43,11 +43,6 @@
 
   {{ block "head_extra" . }}{{ end }}
   
-  <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css">
-  </noscript>
-
   {{ $options := dict "targetPath" "css/style.css" "enableSourceMap" hugo.IsServer }}
   {{ $style := resources.Get "scss/style.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS $options }}
   {{ if not hugo.IsServer }}

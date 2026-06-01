@@ -1,6 +1,7 @@
 {{ $postsCount := len (where site.RegularPages "Type" "posts") }}
 {{ $laodaoCount := len (where site.RegularPages "Type" "laodao") }}
 {{ $tagsCount := len site.Taxonomies.tags }}
+{{ $catMap := site.Data.categories }}
 
 <aside class="blog-sidebar">
   <div class="sidebar-profile">
@@ -57,14 +58,38 @@
     {{ end }}
   </nav>
   
-  {{ if .Site.Taxonomies.tags }}
+  {{ if .Site.Taxonomies.categories }}
   <div class="sidebar-section">
-    <h3 class="sidebar-section-title">热门标签</h3>
-    <div class="sidebar-tags">
-      {{ range first 12 .Site.Taxonomies.tags.ByCount }}
-      <a href="{{ .Page.RelPermalink }}" class="sidebar-tag">{{ .Page.Title }}</a>
+    <h3 class="sidebar-section-title">分类</h3>
+    <div class="sidebar-categories">
+      {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+      {{ $displayName := index $catMap $name | default ($name | humanize) }}
+      <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}" class="sidebar-category">
+        <span class="cat-name">{{ $displayName }}</span>
+        <span class="cat-count">{{ len $taxonomy }}</span>
+      </a>
       {{ end }}
     </div>
   </div>
   {{ end }}
+  
+  {{ if .Site.Taxonomies.tags }}
+  <div class="sidebar-section">
+    <h3 class="sidebar-section-title">标签</h3>
+    <div class="sidebar-tags">
+      {{ range first 12 .Site.Taxonomies.tags.ByCount }}
+      <a href="{{ .Page.RelPermalink }}" class="sidebar-tag">#{{ .Page.Title }}<span class="tag-count">{{ .Count }}</span></a>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+  <div class="sidebar-badges">
+    <h3 class="sidebar-section-title">来自</h3>
+    <div class="badges-grid">
+      <a href="https://gohugo.io" target="_blank" class="sidebar-badge badge-hugo">HUGO</a>
+      <a href="https://workers.cloudflare.com" target="_blank" class="sidebar-badge badge-cloudflare">CF WORKER</a>
+      <a href="https://4op.top" class="sidebar-badge badge-88x31">北海轻歌</a>
+    </div>
+  </div>
 </aside>

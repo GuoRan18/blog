@@ -6,13 +6,18 @@
   <main class="blog-main">
     <article class="blog-card single-card">
       <div class="card-meta">
+        {{ with .Params.categories }}
+        {{ $catSlug := index . 0 }}
+        {{ $catMap := site.Data.categories }}
+        <a href="{{ "/categories/" | relLangURL }}{{ $catSlug | urlize }}" class="card-category">{{ index $catMap $catSlug | default ($catSlug | humanize) }}</a>
+        {{ end }}
         <time class="card-time" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
           {{ .Date.Format "2006-01-02" }}
         </time>
         {{ with .Params.tags }}
         <div class="card-tags">
           {{ range . }}
-          <a href="{{ (urlize (printf "/tags/%s" .)) | relURL }}" class="card-tag">{{ . }}</a>
+          <a href="{{ (urlize (printf "/tags/%s" .)) | relURL }}" class="card-tag">#{{ . }}</a>
           {{ end }}
         </div>
         {{ end }}
