@@ -45,4 +45,4 @@ tags: [日常]
 
 怎么办？本来打算总结一季度的，突然想不起来了，本来手机上有小本本记录一下的，前几天为了尝鲜，升级到了miui12开发版，手机里的数据都没了。
 
-![img](https://img.010316.xyz/usr/hugo/qqpyimg1589267294.gif)
+![img](https://img.4op.top/usr/hugo/qqpyimg1589267294.gif)

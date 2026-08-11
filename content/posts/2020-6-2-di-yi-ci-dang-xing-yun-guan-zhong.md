@@ -34,7 +34,7 @@ tags: [日常]
 印象当中之前唯一一次中奖是五六年前买过一次彩票，花了五块钱，中了十块钱。然后把十块钱梭哈了，然后就没有然后了。**这次中奖真的是很惊喜的一件事。**
 
 <div class="mdui-row-xs-2">
-<img src="https://img.010316.xyz/usr/hugo/31.jpg" class="mdui-col">
-<img src="https://img.010316.xyz/usr/hugo/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200602155119.jpg" class="mdui-col">
-<img src="https://img.010316.xyz/usr/hugo/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200602155150.jpg" class="mdui-col">
+<img src="https://img.4op.top/usr/hugo/31.jpg" class="mdui-col">
+<img src="https://img.4op.top/usr/hugo/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200602155119.jpg" class="mdui-col">
+<img src="https://img.4op.top/usr/hugo/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20200602155150.jpg" class="mdui-col">
 </div>

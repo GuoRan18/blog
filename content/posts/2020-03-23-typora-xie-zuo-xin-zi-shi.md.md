@@ -14,13 +14,13 @@ categories: ["toss"]
 
 今天发现一个全自动利器**PicGo**，真的很牛逼，我写这篇文章也是迫不及待想试试用起来顺不顺手。
 
-用起来是这个样子的。![1](https://img.010316.xyz/usr/hugo/1.gif)
+用起来是这个样子的。![1](https://img.4op.top/usr/hugo/1.gif)
 
-1.配置很简单，点击文件→偏好设置→图像，设置一下就好。![image-20200320155230382](https://img.010316.xyz/usr/hugo/image-20200320155230382.png)
+1.配置很简单，点击文件→偏好设置→图像，设置一下就好。![image-20200320155230382](https://img.4op.top/usr/hugo/image-20200320155230382.png)
 
   2.然后PicGo也需要配置一下，因为我用的又拍云储存，所以只是配置了一个又拍云。
 
-![](https://img.010316.xyz/usr/hugo/image-20200320160702865.png)
+![](https://img.4op.top/usr/hugo/image-20200320160702865.png)
 
 ### 这样就好了。
 

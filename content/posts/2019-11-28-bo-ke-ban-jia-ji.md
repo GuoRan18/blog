@@ -71,7 +71,7 @@ $ hugo --help
 
 因为我每次更新完文章都会将博客备份到github中，所以在安装好hugo以后，直接将博客备份git下来就可以了。
 
-![琛苏](https://img.010316.xyz/usr/hugo/11/bok.png)
+![琛苏](https://img.4op.top/usr/hugo/11/bok.png)
 
 完美生成，相比较个人版的Cloud Studio有个方便之处就是可以自动部署到静态网站。而团队版需要手动操作
 
@@ -99,4 +99,4 @@ To e.coding.net:chen92/chen92.git
 
 然后部署到网页。
 
-![琛苏](https://img.010316.xyz/usr/hugo/11/11.png)
+![琛苏](https://img.4op.top/usr/hugo/11/11.png)

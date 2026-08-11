@@ -28,7 +28,7 @@ tags: [日常]
 
 这是果然第二次生病，上次是一个多月前着凉引起的拉肚子加发烧。这次生了个病更粘人了，也有小脾气了。想要干啥就得干，不让就哭。服气！！！
 
-<video height="100%" width="100%" poster="https://img.010316.xyz/usr/hugo/c90f4e4b8eed8c806197c7391a39c36.jpg" preload="none" controls="controls"><source src="https://img.010316.xyz/usr/hugo/6e81f4438130fbeffca58dfb15fab3a2.mp4"></video>
+<video height="100%" width="100%" poster="https://img.4op.top/usr/hugo/c90f4e4b8eed8c806197c7391a39c36.jpg" preload="none" controls="controls"><source src="https://img.4op.top/usr/hugo/6e81f4438130fbeffca58dfb15fab3a2.mp4"></video>
 > 好逗，学抠鼻子了，啥也没抠到还假模假样的扔一下。
 
 ### 手机备份好了

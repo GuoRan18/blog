@@ -18,13 +18,13 @@ permalink: zhi-wu-yuan
 
 后来没办法，最后一个馆也不去了，抱着果然回车里睡觉吧，正好下午，阳光充足，车里温度合适。
 
-![](https://img.010316.xyz/usr/hugo/IMG_20201107_220715.jpg)
-![](https://img.010316.xyz/usr/hugo/IMG_20201107_215134.jpg)
-![](https://img.010316.xyz/usr/hugo/IMG_20201107_153036.jpg)
+![](https://img.4op.top/usr/hugo/IMG_20201107_220715.jpg)
+![](https://img.4op.top/usr/hugo/IMG_20201107_215134.jpg)
+![](https://img.4op.top/usr/hugo/IMG_20201107_153036.jpg)
 
-![](https://img.010316.xyz/usr/hugo/IMG_20201107_220342.jpg)
-![](https://img.010316.xyz/usr/hugo/IMG_20201107_220237.jpg)
-![](https://img.010316.xyz/usr/hugo/IMG_20201107_220601.jpg)
+![](https://img.4op.top/usr/hugo/IMG_20201107_220342.jpg)
+![](https://img.4op.top/usr/hugo/IMG_20201107_220237.jpg)
+![](https://img.4op.top/usr/hugo/IMG_20201107_220601.jpg)
 
 > 第二张是我为了查项目，一直在馆里面走来走去，找一个信息好点的地方发现的一处意外风景，随手拍了下来，挺喜欢这个感觉。
 

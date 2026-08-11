@@ -11,7 +11,7 @@ tags: [日常]
 
 看来，我还是没逃过。
 
-![琛苏博客](https://img.010316.xyz/usr/hugo/2020/03/yumingbeian.png)
+![琛苏博客](https://img.4op.top/usr/hugo/2020/03/yumingbeian.png)
 
 ###  **主题**
 
@@ -21,5 +21,5 @@ tags: [日常]
 
 ###  **域名**
 
-忘了什么时候了，反正好几个月前，在[namesilo](https://www.namesilo.com/)新沟了一个域名：[**4op.top**](https:4op.top)，昨天领了好几张腾讯云的域名续费卷，满40-20和满20-10的，所以就转回到腾讯云吧，起码能续费七八年了。![琛苏设计](https://img.010316.xyz/usr/hugo/2020/03/yumingxufeijuan.png)
+忘了什么时候了，反正好几个月前，在[namesilo](https://www.namesilo.com/)新沟了一个域名：[**4op.top**](https:4op.top)，昨天领了好几张腾讯云的域名续费卷，满40-20和满20-10的，所以就转回到腾讯云吧，起码能续费七八年了。![琛苏设计](https://img.4op.top/usr/hugo/2020/03/yumingxufeijuan.png)
 

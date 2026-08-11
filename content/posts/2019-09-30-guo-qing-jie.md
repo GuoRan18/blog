@@ -11,7 +11,7 @@ tags: [日常]
 #### **70华诞快乐**
 今年的国庆节比往常来的更猛烈一些，这是2018年国庆升国旗仪式。每次看都感觉好震撼。
 
-<video height="100%" width="100%" poster="https://file.upstairs.cn/usr/uploads/2019/02/3036134056.jpg" preload="none" controls="controls"><source src="https://img.010316.xyz/usr/uploads/2019/05/2018-10-1.mp4"></video>
+<video height="100%" width="100%" poster="https://file.upstairs.cn/usr/uploads/2019/02/3036134056.jpg" preload="none" controls="controls"><source src="https://img.4op.top/usr/uploads/2019/05/2018-10-1.mp4"></video>
 
 #### **果然会叫爸爸了**
 大概一个月多前的时候果然就能简单的发出一些音节，并且在我和她妈说话的时候她会发出“啊”“呀呀”的声音，好像是想插入我们的交流当中。
@@ -28,8 +28,8 @@ tags: [日常]
 晚上回了家，感觉手机外壳有点脏了，就拿下来洗了一下。然后手机放在沙发背上面，后面的事情就是手机从沙发背上掉了下来，大概有个八十公分的高度吧。手机屏幕着的地，当时把手机捡起来的检查一翻，发现没有任何问题，我当时的心里感受是：“卧槽，这手机这么牛掰吗，这都没事！”
 
 然后我就没再理它。当时在做饭，等做完饭，吃饭的时候拿起手机来发现，出问题了。屏幕左面有五分之一的部分成了蓝色，所幸还可以点击操作。
-![手机屏幕](https://img.010316.xyz/usr/uploads/2019/09/QQ%E5%9B%BE%E7%89%8720190930161552.jpg)
-![手机屏幕](https://img.010316.xyz/usr/uploads/2019/09/QQ%E5%9B%BE%E7%89%8720190930161604.jpg)
+![手机屏幕](https://img.4op.top/usr/uploads/2019/09/QQ%E5%9B%BE%E7%89%8720190930161552.jpg)
+![手机屏幕](https://img.4op.top/usr/uploads/2019/09/QQ%E5%9B%BE%E7%89%8720190930161604.jpg)
 然而，在第二天早上闹钟准时响起，我在拿起手机准备关闭闹钟，发现手机彻底废了，屏幕全黑。
 ### 心塞！
 我当时为什么要省那一二百块钱的碎屏险！
